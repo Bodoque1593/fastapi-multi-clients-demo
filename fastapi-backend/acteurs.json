@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Actor 1",
+        "bio": "This is the bio of the first actor",
+        "picture": "https://fifpro.org/media/fhxkcocj/imago1036849243h.jpg?rxy=0.44248162845529576,0.28445632196454546&width=1600&height=1024&rnd=133554938083930000"
+    },
+    {
+        "id": 2,
+        "name": "Actor 2",
+        "bio": "This is the bio of the first actor",
+        "picture": "https://www.nme.com/wp-content/uploads/2023/07/dwayne-johnson-the-rock-actors-strike-696x442.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Actor 3",
+        "bio": "This is the bio of the first actor",
+        "picture": "https://resizer.glanacion.com/resizer/v2/adam-sandler-fue-el-actor-mejor-remunerado-de-BPFAHYMSPBG5LBSF7JUB4VY53Y.JPG?auth=2b83b513d09a54d49c514eb187a9d730dc220c03abf3805dd8f5fd85f1c25a0e&width=1280&height=854&quality=70&smart=true"
+    },
+    {
+        "id": 4,
+        "name": "Actor 4",
+        "bio": "This is the bio of the first actor",
+        "picture": "https://cdn.britannica.com/19/245119-050-A7D421BE/Brendan-Fraser-oscar-Academy-Award-for-Best-Actor-2022.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Actor 6",
+        "bio": "This is the bio of the first actor",
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/250px-ChrisEvans2023.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Juan",
+        "bio": "xxx",
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Jordi_El_Ni%C3%B1o_Polla_2019_by_Glenn_Francis.jpg"
+    }
+]

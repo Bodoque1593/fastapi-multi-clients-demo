@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Liste des acteurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header>
+  <h1> Tous les Acteurs </h1>
+</header>
+<main>
+  <div id="flash"></div>
+  <ul id="ul" class="panel"></ul>
+</main>
+<script>
+const BASE_URL = "http://127.0.0.1:8000"; 
+
+
+const ul = document.querySelector("#ul");
+const flash = document.querySelector("#flash");
+const toast = (m)=> flash.innerHTML = `<div class="alert ok">${m}</div>`;
+
+(async ()=>{
+  try{
+    const r = await fetch(`${BASE_URL}/acteurs`);
+    if(!r.ok) throw new Error(`GET /acteurs → ${r.status}`);
+    const data = await r.json();
+
+    ul.innerHTML = data.map(a => `
+      <li style="margin:8px 0; display:flex; gap:12px; align-items:flex-start">
+        <img src="${a.picture}" alt="photo" style="width:64px;height:64px;object-fit:cover;border-radius:6px;border:1px solid #ddd"/>
+        <div>
+          <b>#${a.id}</b> — ${a.name}<br/>
+          <small>${a.bio}</small>
+        </div>
+      </li>
+    `).join("");
+
+    toast("OK");
+  }catch(e){
+    flash.innerHTML = `<div class="alert err">${e}</div>`;
+  }
+})();
+</script>
+
+</body>
+</html>

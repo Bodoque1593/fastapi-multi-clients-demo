@@ -1,0 +1,15 @@
+{% extends "actors/base.html" %}
+{% block title %}{% if mode == "create" %}Ajouter{% else %}Modifier{% endif %} un acteur{% endblock %}
+{% block content %}
+<a href="{% url 'actors:list' %}" class="btn">← Retour</a>
+
+<h2 style="margin-top:10px;">
+  {% if mode == "create" %}Créer un acteur{% else %}Modifier l'acteur #{{ act_id }}{% endif %}
+</h2>
+
+<form method="post" style="margin-top:12px;">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn on" type="submit">{% if mode == "create" %}Créer{% else %}Enregistrer{% endif %}</button>
+</form>
+{% endblock %}

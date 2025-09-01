@@ -1,0 +1,22 @@
+{% extends "acteurs/base.html.twig" %}
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<h2>{{ titre }}</h2>
+
+<div class="card">
+  <img class="thumb-lg" src="{{ a.picture }}" alt="photo">
+  <div>
+    <p><b>ID:</b> {{ a.id }}</p>
+    <p><b>Nom:</b> {{ a.name }}</p>
+    <p><b>Bio:</b> {{ a.bio }}</p>
+    <div class="actions">
+      <a class="btn" href="{{ path('acteurs_modifier', {id:a.id}) }}">Modifier</a>
+      <form method="post" action="{{ path('acteurs_supprimer', {id:a.id}) }}" onsubmit="return confirm('Supprimer #{{ a.id }} ?');" style="display:inline">
+        <button class="btn danger" type="submit">Supprimer</button>
+      </form>
+      <a class="btn muted" href="{{ path('acteurs_index') }}">Retour</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

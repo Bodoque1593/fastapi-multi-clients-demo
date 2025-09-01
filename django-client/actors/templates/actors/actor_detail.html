@@ -1,0 +1,14 @@
+{% extends "actors/base.html" %}
+{% block title %}Acteur #{{ acteur.id }}{% endblock %}
+{% block content %}
+<a href="{% url 'actors:list' %}" class="btn">← Retour</a>
+<div class="card" style="margin-top:12px;">
+  <img class="thumb" src="{{ acteur.picture }}" alt="{{ acteur.name }}">
+  <h2>{{ acteur.name }} <small style="opacity:.7">#{{ acteur.id }}</small></h2>
+  <p>{{ acteur.bio }}</p>
+  <div>
+    <a class="btn" href="{% url 'actors:update' acteur.id %}">Modifier</a>
+    <a class="btn mute" href="{% url 'actors:delete' acteur.id %}">Supprimer</a>
+  </div>
+</div>
+{% endblock %}

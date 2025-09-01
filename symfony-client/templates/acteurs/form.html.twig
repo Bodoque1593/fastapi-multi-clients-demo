@@ -1,0 +1,35 @@
+{% extends "acteurs/base.html.twig" %}
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<h2>{{ titre }}</h2>
+
+<form method="post" class="panel">
+  {% if mode == 'create' %}
+    <div class="row">
+      <label for="id">ID</label>
+      <input id="id" name="id" type="number" min="1" value="{{ a.id }}" required>
+    </div>
+  {% endif %}
+
+  <div class="row">
+    <label for="name">Nom</label>
+    <input id="name" name="name" type="text" value="{{ a.name }}" required maxlength="100">
+  </div>
+
+  <div class="row">
+    <label for="bio">Biographie</label>
+    <textarea id="bio" name="bio" rows="3" required>{{ a.bio }}</textarea>
+  </div>
+
+  <div class="row">
+    <label for="picture">Photo (URL)</label>
+    <input id="picture" name="picture" type="url" value="{{ a.picture }}" required>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn on">Enregistrer</button>
+    <a class="btn muted" href="{{ path('acteurs_index') }}">Retour</a>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "acteurs/base.html.twig" %}
+{% block title %}Acteurs — Liste{% endblock %}
+
+{% block content %}
+
+<section class="toolbar">
+  <form method="get" action="{{ path('acteurs_index') }}" class="search">
+    <label for="q">Rechercher par ID</label>
+    <input id="q" name="q" type="number" min="1" value="{{ q|default('') }}" placeholder="ex.: 1">
+    <button type="submit" class="btn">Rechercher</button>
+    <a href="{{ path('acteurs_index') }}" class="btn muted">Effacer</a>
+  </form>
+</section>
+
+<section>
+  <h2>Liste des acteurs</h2>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th style="width:70px;">ID</th>
+        <th style="width:220px;">Nom</th>
+        <th>Bio</th>
+        <th style="width:90px;">Photo</th>
+        <th style="width:220px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in acteurs %}
+        <tr>
+          <td><span class="badge co">{{ a.id }}</span></td>
+          <td>{{ a.name }}</td>
+          <td>{{ a.bio }}</td>
+          <td><img class="thumb" src="{{ a.picture }}" alt="photo"></td>
+          <td class="actions">
+            <a class="btn" href="{{ path('acteurs_detail', {id:a.id}) }}">Détails</a>
+            <a class="btn" href="{{ path('acteurs_modifier', {id:a.id}) }}">Modifier</a>
+            <form method="post" action="{{ path('acteurs_supprimer', {id:a.id}) }}" style="display:inline" onsubmit="return confirm('Supprimer #{{ a.id }} ?');">
+              <button class="btn danger" type="submit">Supprimer</button>
+            </form>
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="5" class="muted">Aucun résultat…</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% endblock %}

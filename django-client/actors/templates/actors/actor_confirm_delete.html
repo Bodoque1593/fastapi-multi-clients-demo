@@ -1,0 +1,16 @@
+{% extends "actors/base.html" %}
+{% block title %}Supprimer acteur{% endblock %}
+{% block content %}
+<a href="{% url 'actors:list' %}" class="btn">← Retour</a>
+<h2>Confirmer la suppression</h2>
+
+{% if acteur %}
+  <p>Supprimer <strong>{{ acteur.name }}</strong> (#{{ acteur.id }}) ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn on" type="submit">Oui, supprimer</button>
+  </form>
+{% else %}
+  <p>Acteur introuvable.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Acteurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header>
+  <h1> Acteurs</h1>
+  <nav>
+    <a href="liste.html" style="color:#ffd57a; margin-left:12px;">Voir la liste simple</a>
+  </nav>
+  <p class="muted">Consommation de l’API FastAPI</p>
+</header>
+
+<main>
+
+  <section class="toolbar">
+    <button id="btn-refresh" class="btn on" type="button">Actualiser</button>
+
+    <div class="search">
+      <label for="q">Rechercher par ID</label>
+      <input id="q" type="number" min="1" placeholder="ex.: 1" />
+      <button id="btn-search" class="btn" type="button">Rechercher</button>
+      <button id="btn-clear" class="btn muted" type="button">Effacer</button>
+    </div>
+  </section>
+
+  <!-- Liste -->
+  <section>
+    <h2>Liste des acteurs</h2>
+    <div id="flash" aria-live="polite"></div>
+    <table class="grid" id="tbl">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Bio</th>
+          <th>Photo</th>
+          <th style="width:160px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+
+      </tbody>
+    </table>
+  </section>
+
+
+  <section class="panel">
+    <h2>Créer / Mettre à jour</h2>
+    <form id="frm">
+      <div class="row">
+        <label for="id">ID</label>
+        <input id="id" name="id" type="number" min="1" required />
+      </div>
+      <div class="row">
+        <label for="name">Nom</label>
+        <input id="name" name="name" type="text" required maxlength="100" />
+      </div>
+      <div class="row">
+        <label for="bio">Biographie</label>
+        <textarea id="bio" name="bio" rows="3" required></textarea>
+      </div>
+      <div class="row">
+        <label for="picture">Photo (URL)</label>
+        <input id="picture" name="picture" type="url" required />
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn on">Enregistrer</button>
+        <button type="button" id="btn-reset" class="btn muted">Réinitialiser</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <small class="muted">API-JCB</small>
+</footer>
+
+  <script src="./app.js?v=3"></script>
+</body>
+</html>
